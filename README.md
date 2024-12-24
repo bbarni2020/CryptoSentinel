@@ -1,7 +1,7 @@
 # CryptoSentinel 🪙 - README
 
 ## About ℹ️
-Welcome to **CryptoSentinel**! This project is a multi-functional wallet monitoring tool designed to help you recover lost Bitcoin wallets. It employs various functionalities for comprehensive scanning and visualization. 🔍
+Welcome to **CryptoSentinel**! This project is a multi-functional wallet monitoring tool designed to help you recover lost Bitcoin wallets. It employs various functionalities for comprehensive scanning and visualization. 🔍 (I did need to remake this project because one before lost unfortunately)
 
 ## Features ✨
 - **Random Seed Generation:** Discovers potential wallets by generating random seed phrases. 🔑
