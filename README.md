@@ -60,4 +60,4 @@ We encourage you to dive in, experiment, and contribute! Your creativity and pas
 Developed with 💻 by Balogh Barnabás, MasterBros Developers.
 
 ## Disclaimer ⚠️
-This project is for educational purposes only. Using it to scan random wallets or access Bitcoin funds without permission is **illegal** and unethical. Respect privacy and abide by the law. 🚨
+This project is for educational purposes only. Using it to scan random wallets or access Bitcoin funds without permission is **illegal** and unethical. Respect privacy and abide by the law. 🚨 I used AI for my English correcting both in README and on commenting.
