@@ -102,14 +102,19 @@ def index():
     # application
     # It is called when the user requests the / endpoint
     html = f"""
+<!-- HTML5 document structure -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags for character set and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the webpage -->
     <title>CryptoSentinel Dashboard</title>
+    <!-- Include Chart.js library -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
+        /* Basic styling for the body */
         body {{
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: var(--bg-color, #f5f5f5);
@@ -118,22 +123,26 @@ def index():
             padding: 0;
             transition: background 0.3s, color 0.3s;
         }}
+        /* Styling for the header */
         header {{
             background: #343a40;
             color: #fff;
             padding: 10px;
             text-align: center;
         }}
+        /* Container for holding content */
         .container {{
             padding: 20px;
             max-width: 1200px;
             margin: auto;
         }}
+        /* Flexbox layout for statistic cards */
         .stats {{
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
         }}
+        /* Individual statistic card styling */
         .stat-card {{
             background: var(--card-bg, #fff);
             margin: 10px;
@@ -144,24 +153,29 @@ def index():
             flex: 1 1 20%;
             transition: background 0.3s;
         }}
+        /* Heading within statistic card */
         .stat-card h2 {{
             margin: 0;
             font-size: 1.2em;
         }}
+        /* Paragraph within statistic card */
         .stat-card p {{
             font-size: 1.8em;
             color: #17a2b8;
         }}
+        /* Container for charts */
         .chart-container {{
             max-width: 800px;
             margin: 20px auto;
         }}
-         .controls {{
+        /* Flexbox layout for controls */
+        .controls {{
             display: flex;
             justify-content: space-between;
             margin: 20px 0;
             align-items: center;
         }}
+        /* Toggle switch styling */
         .toggle-switch {{
             position: relative;
             width: 50px;
@@ -171,6 +185,7 @@ def index():
             cursor: pointer;
             transition: background 0.3s;
         }}
+        /* Toggle switch circle */
         .toggle-switch:before {{
             content: '';
             position: absolute;
@@ -182,13 +197,15 @@ def index():
             left: 2.5px;
             transition: transform 0.3s;
         }}
+        /* Active state for toggle switch */
         .toggle-switch.active {{
             background: #007bff;
         }}
+        /* Circle movement in active state */
         .toggle-switch.active:before {{
             transform: translateX(25px);
         }}
-
+        /* Dark mode styling */
         .dark-mode {{
             background: #333;
             color: #fff;
@@ -237,13 +254,55 @@ def index():
             const now = new Date();
             document.getElementById('clock').innerText = now.toLocaleTimeString();
         }};
-
         // Function to fetch data from the API and update the UI
         const fetchData = async () => {{
             try {{
                 const response = await fetch('/data');
                 const data = await response.json();
-                const currencyCode = Intl.NumberFormat().resolvedOptions().locale.split('-')[1]; // Get user's country code
+                // Comprehensive mapping of locales to currencies
+            const localeCurrencyMap = {{
+                us: 'USD', // United States
+                gb: 'GBP', // United Kingdom
+                de: 'EUR', // Germany
+                fr: 'EUR', // France
+                es: 'EUR', // Spain
+                it: 'EUR', // Italy
+                ru: 'RUB', // Russia
+                jp: 'JPY', // Japan
+                cn: 'CNY', // China
+                in: 'INR', // India
+                au: 'AUD', // Australia
+                ca: 'CAD', // Canada
+                br: 'BRL', // Brazil
+                mx: 'MXN', // Mexico
+                za: 'ZAR', // South Africa
+                kr: 'KRW', // South Korea
+                ar: 'ARS', // Argentina
+                tr: 'TRY', // Turkey
+                ch: 'CHF', // Switzerland
+                se: 'SEK', // Sweden
+                no: 'NOK', // Norway
+                dk: 'DKK', // Denmark
+                pl: 'PLN', // Poland
+                cz: 'CZK', // Czech Republic
+                th: 'THB', // Thailand
+                vn: 'VND', // Vietnam
+                id: 'IDR', // Indonesia
+                my: 'MYR', // Malaysia
+                ph: 'PHP', // Philippines
+                ng: 'NGN', // Nigeria
+                eg: 'EGP', // Egypt
+                sa: 'SAR', // Saudi Arabia
+                ae: 'AED', // UAE
+                il: 'ILS', // Israel
+                sg: 'SGD', // Singapore
+                nz: 'NZD', // New Zealand
+                hk: 'HKD', // Hong Kong
+                hu: 'HUF', // Hungary
+            }};
+
+            // Get the currency code or default to USD
+            const currencyCode = localeCurrencyMap[Intl.NumberFormat().resolvedOptions().locale.toLowerCase()] || 'USD';
 
                 // Update wallet stats
                 document.getElementById('wallets-balance').innerText = data.wallets_with_balance_count;
@@ -251,9 +310,16 @@ def index():
                 document.getElementById('total-money').innerText = data.money;
 
                 // Fetch real-time BTC to local currency conversion
-                const btcResponse = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=${{currencyCode}}`);
+                const currencyCodetoLowerCase = currencyCode.toLowerCase();
+                const btcResponse = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=${{currencyCodetoLowerCase}}`);
                 const btcData = await btcResponse.json();
-                document.getElementById('btc-to-currency').innerText = `${{btcData.bitcoin[currencyCode]}} ${{currencyCode}}`;
+
+                // Extract the currency value
+                const btcValue = btcData.bitcoin["${{currencyCodetoLowerCase}}"];
+
+                // Update the HTML element with the value and currency code
+                document.getElementById('btc-to-currency').innerText = `${{btcValue}} ${{currencyCode}}`;
+
 
                 // Update last updated time
                 lastUpdateTime = Date.now();
