@@ -1,15 +1,15 @@
 # CryptoSentinel 🪙 - README
 
 ## About ℹ️
-Welcome to **CryptoSentinel**! This project is a multi-functional wallet monitoring tool designed to help you recover lost Bitcoin wallets. It employs various functionalities for comprehensive scanning and visualization. 🔍 (I did need to remake this project because one before lost unfortunately)
+Welcome to **CryptoSentinel**! This project is a tool for monitoring wallets that has many functions, designed to help you recover lost Bitcoin wallets. It uses various features for thorough scanning and visualization. 🔍 (I had to remake this project; however, the previous one was unfortunately lost)
 
 ## Features ✨
 - **Random Seed Generation:** Discovers potential wallets by generating random seed phrases. 🔑
-- **Wallet Balance Tracking:** Identifies wallets with and without balances. 💰
-- **Live Flask Dashboard:** Provides a dynamic web interface for visualizing wallet data (requires enabling the `web` parameter in the `search` function). 📊
-- **Tkinter Visualization:** Offers an interactive desktop GUI for real-time monitoring (requires enabling the `visualize` parameter in the search function). 🖥️
+- **Wallet Balance Tracking:** Identifies wallets with and without balances and with balances too. 💰
+- **Live Flask Dashboard:** Provides a dynamic web interface for visualizing wallet data (requires enabling the `web` parameter). 📊
+- **Tkinter Visualization:** Offers an interactive desktop GUI for real-time monitoring (requires enabling the `visualize` parameter). 🖥️
 - **Transaction History Check:** Scans wallets for existing transactions (uses the `checkhistory` function). 📜
-- **Balance Transfer:** Transfers funds from discovered wallets to a specified master wallet address (uses the `transfer_balance_to_master_wallet` function). ➡️
+- **Balance Transfer:** Transfers funds from discovered wallets to a specified wallet address (uses the `transfer_balance_to_master_wallet` function). ➡️
 
 ## How to Use ⚙️
 1. **Installation:** Install the required dependencies using pip: ⬇️
@@ -37,27 +37,24 @@ Welcome to **CryptoSentinel**! This project is a multi-functional wallet monitor
    ```
    checkhistory("potential_wallets.txt")
    ```
-   This will create separate files (`emptywallets.txt` and `found_wallets_with_transactions.txt`) to categorize the scanned wallets. 📂
+   This will create separate files (`emptywallets.txt` and `found_wallets_with_transactions.txt`) to categorize all of the scanned wallets. 📂
 
-4. **Balance Transfer:** Utilize the `transfer_balance_to_master_wallet` function to transfer funds from discovered wallets with balances to a specified master wallet address. 💸
+4. **Balance Transfer:** Utilize the `transfer_balance_to_master_wallet` function to transfer the balance from discovered wallets with balances to a specified master wallet address. 💸
    ```
    transfer_balance_to_master_wallet("your_master_wallet_address")  # Replace with your actual master wallet address
    ```
 
-## Technologies Used 🛠️
-- **Python:** Main programming language for backend logic. 🐍
+## Skills used 🛠️
+- **Python:** Main programming language for logic. 🐍
 - **Flask:** Web framework for building the live dashboard (optional). 🌐
-- **Tkinter:** Python's built-in GUI library for the desktop visualization interface (optional). 🖼️
+- **Tkinter:** Python's  GUI library for the desktop visualization interface (optional). 🖼️
 - **Bitcoinlib:** Python library for interacting with the Bitcoin blockchain. 🔗
-- **Colorama:** Enhances terminal text coloring for improved readability. 🌈
-- **Matplotlib:** Python plotting library (potentially used for data visualization in the dashboard). 📈
+- **Colorama:** Enhances terminal text coloring for improved readability, and it looks better. 🌈
+- **Matplotlib:** Python plotting library. 📈
 
 ## Custom License 📜
-Exciting news! 🎉 A custom license for **CryptoSentinel** is found in `LICENSE.md`. This license is designed to empower you to explore, modify, and share this project while respecting the community and its values. 🌍✨
 
-We encourage you to dive in, experiment, and contribute! Your creativity and passion can help shape the future of this project. Let's build something amazing together! 🚀💪
-
-Developed with 💻 by Balogh Barnabás, MasterBros Developers.
+Exciting news! 🎉 A custom license for **CryptoSentinel** is (located) in `LICENSE.md`. This license is meant to empower you to explore, modify and share this project (while) respecting the community and its values. 🌍✨ We encourage you to dive in, experiment and contribute! Your creativity and passion can help shape the future of this project. Let's build something amazing together! 🚀💪 Developed with 💻 by Balogh Barnabás, MasterBros Developers. However, remember to follow the guidelines. Although it's fun to experiment, be mindful of the rules.
 
 ## Disclaimer ⚠️
 This project is for educational purposes only. Using it to scan random wallets or access Bitcoin funds without permission is **illegal** and unethical. Respect privacy and abide by the law. 🚨 I used AI for my English correcting both in README and on commenting and some comments are AI generated (for better understanding the code). For anyone who wants to get the files without comments write me an email!
