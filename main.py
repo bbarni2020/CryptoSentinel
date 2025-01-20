@@ -1,4 +1,4 @@
-# Dear HighSeas staff! All three monarch are written by me but it took a long time due to my bad English. i heard that comment can't hurt so that's why I wrote lot of comments. Now I agree this is maybe to much but as I mentioned this still can be useful. Thank you
+# Dear HighSeas staff! All the comments  are written by me but it took a long time due to my bad English. i heard that comment can't hurt so that's why I wrote lot of comments. Now I agree this is maybe to much but as I mentioned this still can be useful. Thank you
 
 
 
